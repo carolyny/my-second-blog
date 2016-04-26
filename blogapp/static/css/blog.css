@@ -149,9 +149,10 @@ body {
   padding-bottom:40px;
 }
 .blogimage{
-  height:300px;
+
   width:300px;
   margin-left:250px;
+  padding-bottom:20px;
 }
 
 h1{
