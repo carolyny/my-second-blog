@@ -1,18 +1,30 @@
 {% extends "blog/base.html" %}
 {% block content %}
 
+            <div id ="introtext" class="narrowwidth">
+                <p>  Hello, I'm Carolyn.  In May 2015, I took part in a <a href= "https://djangogirls.org/">Django Girls</a> workshop.  I was amazed at what I managed to complete in one day and how much I enjoyed coding.   This website, a work in progress, is the second version of the blog I created on that day (I like pictures so decided to add one to each blog entry. It took me ages to get it to work but it felt so good when it did!).  <br> </br>I aim to write about my coding journey.  It's started slowly but if I want to change career (which I do), I need to learn, to practise, to write code and regularly <strong> push code. </strong>  So introduction over, time to get properly started.</p>
+
+                  <div class="break"> </div>
+
+            </div>
+
           {% for post in posts %}
-              <div class="post">
-                  <aside><img src="/..{{post.image.url}}" width="100" height="100"></aside>
-                  <h1><a href="">{{ post.title }}</a></h1>
-                  <div class="date">
+            <div id="maintext" class="narrowwidth">
+                  <div id ="blogtext" class="narrowwidth">
+
+                    <aside><img src="/..{{post.image.url}}" width="100" height="100"></aside>
+                    <h1><a href="">{{ post.title }}</a></h1>
+                        <div class="date">
                                 {{ post.published_date|date:"D d M Y"}}
-                              </div>
+                        </div>
 
                 <!--  <p>published: {{ post.published_date }}</p>-->
-                  <p>{{ post.text|linebreaks|urlize }}</p>
+                        {{ post.text|truncatewords:"75"|linebreaks|urlize }}
+                    <p class="more"> <a href="/"> READ MORE </a></p>
+                        <div class="break"> </div>
 
+                  </div>
 
-              </div>
+            </div>
           {% endfor %}
 {% endblock content %}
