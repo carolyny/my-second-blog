@@ -1,0 +1,27 @@
+{% extends "blog/base.html" %}
+{% block content %}
+
+
+
+            <div id="maintext" class="narrowwidth">
+                  <div id ="blogtext" class="narrowwidth">
+
+
+                    <h1>{{ post.title }}</h1>
+                        <div class="date">
+                                {{ post.published_date|date:"D d M Y"}}
+                        </div>
+
+                        <div class="blogimage">
+                          <img src="/..{{post.image.url}}" >
+                        </div>
+                <!--  <p>published: {{ post.published_date }}</p>-->
+                        {{ post.text|linebreaks|urlize }}
+
+
+
+                  </div>
+
+            </div>
+
+{% endblock content %}
